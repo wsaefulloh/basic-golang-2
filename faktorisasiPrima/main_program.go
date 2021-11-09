@@ -18,7 +18,7 @@ func Append(slice []int, data int) []int {
 
 func main() {
 	var angka string
-	fmt.Print("Tentukan bilangan yang ingin dicari faktor primanya (angka): ")
+	fmt.Print("Tentukan bilangan yang ingin dicari faktor primanya (angka 0-100): ")
 	fmt.Scanln(&angka)
 	var nilai, err = strconv.Atoi(angka)
 	if err == nil {
@@ -72,6 +72,14 @@ func seleksiPrima(ch1 chan<- int, nilai1 int) {
 			// fmt.Println("send data")
 			ch1 <- 5
 			i = i / 5
+		} else if (i % 7) == 0 {
+			// fmt.Println("send data")
+			ch1 <- 7
+			i = i / 7
+		} else if (i % 11) == 0 {
+			// fmt.Println("send data")
+			ch1 <- 11
+			i = i / 11
 		} else if i == 1 {
 			i = 0
 		} else {
